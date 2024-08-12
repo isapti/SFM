@@ -1,0 +1,42 @@
+# System Config
+configid: SFM_Rule_Migration
+title: SAS-SFM Rule Migration environment configuration
+config_version: 1.0
+environment: dev
+tardis_key: True
+randomise_test: True
+test_history_file: sfm-test-history.csv
+deployed: True
+
+# ACCESS TOKEN
+access_token_config:
+   # OAuth2 credentials (client_id and client_secret)
+   client_id:
+   client_secret:
+   # User's credentials (username and password)
+   username:
+   password:
+   # OAuth2 endpoints
+   token_url:
+
+# Rule specific properties
+rule_properties:
+   project_id:
+   message_classification_id:
+   schema_name:
+
+
+# Rules Endpoints
+rules:
+   get_all_rules: https://sasserver.demo.sas.com/detectionDefinition/projects/{projectID}/rules
+   get_rule_by_id: https://sasserver.demo.sas.com/detectionDefinition/projects/{projectID}/rules/{rule_id}
+
+# Database config
+db_configuration_alert:
+   db_type: postgresql+psycopg2
+   db_name:
+   db_schema:
+   db_server:
+   db_port: 5432
+   db_user:
+   db_password:

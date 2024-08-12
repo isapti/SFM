@@ -1,0 +1,1527 @@
+[
+  {
+    "rule_id": "50217",
+    "base_rule_id": "50191",
+    "version": "1",
+    "rule_type": "Authorization",
+    "name": "[Digital] - Rule 1",
+    "code": "if ((TBT_TRAN_AMT >  10000)\n& (TPP_CNTRY_CODE EQ '716'))\nthen do;\n%Action_Alert;\n%Action_Decline();\nend;",
+    "desc": "High amount transaction to risky country",
+    "alert_reason": "High amount transfer to Zimbabwe",
+    "alert_type": "X",
+    "components": [
+      {
+        "componentField": "smh_tran_type",
+        "componentValue": "TRX"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "B"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "I"
+      },
+      {
+        "componentField": "smh_acct_type",
+        "componentValue": "CS"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "CP"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "CD"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "NC"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "UK"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "NA"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "C"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "D"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "E"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "O"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "W"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "P"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "H"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "M"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "B"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "R"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "U"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "BF"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "NAP"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DBA"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DMX"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DEE"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DUA"
+      }
+    ],
+    "variables": []
+  },
+  {
+    "rule_id": "50241",
+    "base_rule_id": "50192",
+    "version": "3",
+    "rule_type": "Authorization",
+    "name": "[Digital] - Rule 2",
+    "code": "IF %ListContains(denylisted_accounts,TPP_ACCT_NUM)\nTHEN DO;\n %Action_Alert;\n %Action_Decline;\nEND;",
+    "desc": "Rule that prevents sending money to denylisted accounts.",
+    "alert_reason": "Beneficiary account is denylisted",
+    "alert_type": "X",
+    "components": [
+      {
+        "componentField": "smh_tran_type",
+        "componentValue": "TRX"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "B"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "I"
+      },
+      {
+        "componentField": "smh_acct_type",
+        "componentValue": "CS"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "CP"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "CD"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "NC"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "UK"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "NA"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "C"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "D"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "E"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "O"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "W"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "P"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "H"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "M"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "B"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "R"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "U"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "BF"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "NAP"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DBA"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DMX"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DEE"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DUA"
+      }
+    ],
+    "variables": []
+  },
+  {
+    "rule_id": "50219",
+    "base_rule_id": "50193",
+    "version": "1",
+    "rule_type": "Authorization",
+    "name": "[Digital] - Rule 3",
+    "code": "%DeclareArray(&rule.beneficiaries ,_o_last_beneficiaries_1 - _o_last_beneficiaries_20);\n\nif smh_client_tran_type = 'SEPACT' and\n\n  /* Customer changed the pasword in last 30 minutes  */\n  (dhms(RQO_TRAN_DATE_ALT,0,0,RQO_TRAN_TIME_ALT) - _o_last_pass_chg_dt < dhms(0,0,30,0) and _o_last_pass_chg_dt NE .) AND\n\n  /* Customer requested debit card reissue in 30 min */\n  (dhms(RQO_TRAN_DATE_ALT,0,0,RQO_TRAN_TIME_ALT) - _o_last_DC_reissue_dt < dhms(0,0,30,0) and _o_last_DC_reissue_dt NE .) AND\n\n  /* Beneficiary acoount number is new for this customer */\n  %indexArray(&rule.beneficiaries,tpp_acct_num) = 0\n\n  THEN DO;\n   %Action_Decline;\n   %Action_Alert;\n   &rule.alert = 1;\n\nend;\n\n/* Update customer profiles */\n\nif smh_client_tran_type = 'PassChg' then do;\n  %set(_o_last_pass_chg_dt) = dhms(rqo_tran_date_alt,0,0,rqo_tran_time_alt);\nend;\n\nif smh_client_tran_type = 'DCreissue' then do;\n  %set(_o_last_DC_reissue_dt) = dhms(rqo_tran_date_alt,0,0,rqo_tran_time_alt);\nend;\n\nif smh_client_tran_type = 'SEPACT' and &rule.alert NE 1 then do;\n  %ShiftHistoryArray(&rule.beneficiaries);\n  %set(_o_last_beneficiaries_1) = TPP_ACCT_NUM;\nend;",
+    "desc": "SIM SWAP",
+    "alert_reason": "SIM SWAP",
+    "alert_type": "X",
+    "components": [
+      {
+        "componentField": "smh_tran_type",
+        "componentValue": "TRX"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "B"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "I"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "N"
+      },
+      {
+        "componentField": "smh_acct_type",
+        "componentValue": "CS"
+      },
+      {
+        "componentField": "smh_acct_type",
+        "componentValue": "NA"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "CP"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "CD"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "NC"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "BT"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "UK"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "NA"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "C"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "D"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "E"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "O"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "W"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "P"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "H"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "M"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "B"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "R"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "F"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "T"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "S"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "U"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "N"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "BF"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "NM"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MI"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MB"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MR"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MD"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MS"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "ML"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MC"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MO"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MP"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "ME"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "M2"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "M3"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MM"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MT"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "NAP"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNA"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNP"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNC"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNU"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNR"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNS"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNO"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNX"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DCB"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DCC"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DCQ"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DBA"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DMX"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DEE"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DPD"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DPP"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DUA"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DUS"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DCH"
+      }
+    ],
+    "variables": [
+      {
+        "field_business_name": "_o_last_beneficiaries_4",
+        "field_name": "v03_str_00936_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_5",
+        "field_name": "v03_str_00968_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_6",
+        "field_name": "v03_str_01000_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_7",
+        "field_name": "v03_str_01032_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_8",
+        "field_name": "v03_str_01064_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_9",
+        "field_name": "v03_str_01096_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_10",
+        "field_name": "v03_str_01128_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_11",
+        "field_name": "v03_str_01160_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_12",
+        "field_name": "v03_str_01192_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_13",
+        "field_name": "v03_str_01224_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_14",
+        "field_name": "v03_str_01256_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_15",
+        "field_name": "v03_str_01288_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_16",
+        "field_name": "v03_str_01320_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_17",
+        "field_name": "v03_str_01352_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_18",
+        "field_name": "v03_str_01384_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_19",
+        "field_name": "v03_str_00760_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_20",
+        "field_name": "v03_str_00792_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_pass_chg_dt",
+        "field_name": "v03_num_00824_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Online user id",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_dc_reissue_dt",
+        "field_name": "v03_num_00832_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Online user id",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_1",
+        "field_name": "v03_str_00840_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_2",
+        "field_name": "v03_str_00872_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_o_last_beneficiaries_3",
+        "field_name": "v03_str_00904_032",
+        "initial_value": "",
+        "field_desc": "Variable in Online user id",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "hqo_ob_userid",
+        "segment_key_field_business_names": "hqo_ob_userid",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      }
+    ]
+  },
+  {
+    "rule_id": "50220",
+    "base_rule_id": "50194",
+    "version": "1",
+    "rule_type": "Authorization",
+    "name": "[Digital] - Rule 4",
+    "code": "%DeclareArray(&rule.benef_amt ,_T_last_transfers_amt_1 - _T_last_transfers_amt_5);\n%DeclareArray(&rule.benef_dt  ,_T_last_transfers_dt_1 - _T_last_transfers_dt_5);\n\n&rule.minutes = 10;\n&rule.cumulative_amt = 20000;\n\n\nif smh_client_tran_type = 'Fundtransf' then do;\n\n/* Customer profiles update */\n%shiftHistoryArray(&rule.benef_amt);\n%set(_T_last_transfers_amt_1) = tbt_tran_amt;\n%shiftHistoryArray(&rule.benef_dt);\n%set(_T_last_transfers_dt_1) = dhms(rqo_tran_date,0,0,rqo_tran_time);\n\ndo &rule.i=1 to 5;\n   if dhms(rqo_tran_date,0,0,rqo_tran_time) - %get(&rule.benef_dt,&rule.i) < dhms(0,0,&rule.minutes,0) and %get(&rule.benef_dt,&rule.i) ne . THEN DO;\n   &rule.counter = sum(&rule.counter,1);\n   &rule.amt = sum(&rule.amt,%get(&rule.benef_amt,&rule.i));\n   end;\nend;\n\nif &rule.counter >= 3 and &rule.amt > &rule.cumulative_amt then do;\n%Action_Alert;\n%Action_Decline;\nend;\n\nend;\n\n%Action_Return_Result(RUR_numeric_010,&rule.counter);",
+    "desc": "Same Beneficiary getting multiple funds transfers from IB and/or MB",
+    "alert_reason": "Same Beneficiary getting multiple funds transfers from IB and/or MB",
+    "alert_type": "X",
+    "components": [
+      {
+        "componentField": "smh_tran_type",
+        "componentValue": "TRX"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "B"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "I"
+      },
+      {
+        "componentField": "smh_acct_type",
+        "componentValue": "CS"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "CP"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "CD"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "NC"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "UK"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "NA"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "C"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "D"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "E"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "O"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "W"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "P"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "H"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "M"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "B"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "R"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "U"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "BF"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "NAP"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DBA"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DMX"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DEE"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DUA"
+      }
+    ],
+    "variables": [
+      {
+        "field_business_name": "_t_last_transfers_dt_4",
+        "field_name": "v06_num_00000_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Beneficiary account",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "tpp_acct_num",
+        "segment_key_field_business_names": "tpp_acct_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_t_last_transfers_dt_5",
+        "field_name": "v06_num_00008_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Beneficiary account",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "tpp_acct_num",
+        "segment_key_field_business_names": "tpp_acct_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_t_last_transfers_amt_2",
+        "field_name": "v06_num_00016_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Beneficiary account",
+        "field_length": "8",
+        "variable_type": "Numeric",
+        "segment_key_field_names": "tpp_acct_num",
+        "segment_key_field_business_names": "tpp_acct_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_t_last_transfers_amt_1",
+        "field_name": "v06_num_00024_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Beneficiary account",
+        "field_length": "8",
+        "variable_type": "Numeric",
+        "segment_key_field_names": "tpp_acct_num",
+        "segment_key_field_business_names": "tpp_acct_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_t_last_transfers_amt_4",
+        "field_name": "v06_num_00032_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Beneficiary account",
+        "field_length": "8",
+        "variable_type": "Numeric",
+        "segment_key_field_names": "tpp_acct_num",
+        "segment_key_field_business_names": "tpp_acct_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_t_last_transfers_amt_3",
+        "field_name": "v06_num_00040_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Beneficiary account",
+        "field_length": "8",
+        "variable_type": "Numeric",
+        "segment_key_field_names": "tpp_acct_num",
+        "segment_key_field_business_names": "tpp_acct_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_t_last_transfers_amt_5",
+        "field_name": "v06_num_00048_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Beneficiary account",
+        "field_length": "8",
+        "variable_type": "Numeric",
+        "segment_key_field_names": "tpp_acct_num",
+        "segment_key_field_business_names": "tpp_acct_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_t_last_transfers_dt_1",
+        "field_name": "v06_num_00056_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Beneficiary account",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "tpp_acct_num",
+        "segment_key_field_business_names": "tpp_acct_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_t_last_transfers_dt_2",
+        "field_name": "v06_num_00064_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Beneficiary account",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "tpp_acct_num",
+        "segment_key_field_business_names": "tpp_acct_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_t_last_transfers_dt_3",
+        "field_name": "v06_num_00072_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Beneficiary account",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "tpp_acct_num",
+        "segment_key_field_business_names": "tpp_acct_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      }
+    ]
+  },
+  {
+    "rule_id": "50221",
+    "base_rule_id": "50195",
+    "version": "1",
+    "rule_type": "Authorization",
+    "name": "[Digital] - Rule 5",
+    "code": "%DeclareArray(&rule.login_ip ,_x_login_ip_1 - _x_login_ip_5);\n%DeclareArray(&rule.login_dt, _x_login_dt_1 - _x_login_dt_5);\n%DeclareArray(&rule.login_new_flg, _x_login_new_flg_1 -  _x_login_new_flg_5);\n%DeclareArray(&rule.login_addben, _x_login_added_ben_1 - _x_login_added_ben_5);\n\n\nif smh_client_tran_type = 'Login' then do;\n\n%ShiftHistoryArray(&rule.login_ip);\n%ShiftHistoryArray(&rule.login_dt);\n%ShiftHistoryArray(&rule.login_new_flg);\n%ShiftHistoryArray(&rule.login_addben);\n\nif %indexarray(&rule.login_ip,hob_ip_address) = 0 then %set(_x_login_new_flg_1) = 1;\n\n%set(_x_login_ip_1) = hob_ip_address;\n%set(_x_login_dt_1) = dhms(rqo_tran_date_alt,0,0,rqo_tran_time_alt);\n\nend;\n\n\nif smh_client_tran_type = 'Addbenef' and _x_login_new_flg_1 = 1 then do;\n%set(_x_login_added_ben_1) =  _u_20byte_string_002;\nend;\n\nif smh_client_tran_type = 'Fundtransf' and _x_login_added_ben_1 = tpp_acct_num then do;\n%Action_Alert;\n%Action_Decline;\nend;",
+    "desc": "New IP address, used to access IB/MB of an existing IB/MB customer, new beneficiary added and immediate fund transfer done",
+    "alert_reason": "New IP address, used to access IB/MB of an existing IB/MB customer, new beneficiary added and immediate fund transfer done",
+    "alert_type": "X",
+    "components": [
+      {
+        "componentField": "smh_tran_type",
+        "componentValue": "TRX"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "B"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "I"
+      },
+      {
+        "componentField": "smh_cust_type",
+        "componentValue": "N"
+      },
+      {
+        "componentField": "smh_acct_type",
+        "componentValue": "CS"
+      },
+      {
+        "componentField": "smh_acct_type",
+        "componentValue": "NA"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "CP"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "CD"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "NC"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "BT"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "UK"
+      },
+      {
+        "componentField": "smh_authenticate_mtd",
+        "componentValue": "NA"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "C"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "D"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "E"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "O"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "W"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "P"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "H"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "M"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "B"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "R"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "F"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "T"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "S"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "U"
+      },
+      {
+        "componentField": "smh_channel_type",
+        "componentValue": "N"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "BF"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "NM"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MI"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MB"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MR"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MD"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MS"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "ML"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MC"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MO"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MP"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "ME"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "M2"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "M3"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MM"
+      },
+      {
+        "componentField": "smh_activity_type",
+        "componentValue": "MT"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "NAP"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNA"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNP"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNC"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNU"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNR"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNS"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNO"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DNX"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DCB"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DCC"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DCQ"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DBA"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DMX"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DEE"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DPD"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DPP"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DUA"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DUS"
+      },
+      {
+        "componentField": "smh_activity_detail1",
+        "componentValue": "DCH"
+      }
+    ],
+    "variables": [
+      {
+        "field_business_name": "_x_login_ip_3",
+        "field_name": "v05_str_00000_024",
+        "initial_value": "",
+        "field_desc": "Variable in Customer",
+        "field_length": "24",
+        "variable_type": "Character",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_ip_2",
+        "field_name": "v05_str_00024_024",
+        "initial_value": "",
+        "field_desc": "Variable in Customer",
+        "field_length": "24",
+        "variable_type": "Character",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_ip_5",
+        "field_name": "v05_str_00048_024",
+        "initial_value": "",
+        "field_desc": "Variable in Customer",
+        "field_length": "24",
+        "variable_type": "Character",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_ip_4",
+        "field_name": "v05_str_00072_024",
+        "initial_value": "",
+        "field_desc": "Variable in Customer",
+        "field_length": "24",
+        "variable_type": "Character",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_ip_1",
+        "field_name": "v05_str_00096_024",
+        "initial_value": "",
+        "field_desc": "Variable in Customer",
+        "field_length": "24",
+        "variable_type": "Character",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_u_20byte_string_002",
+        "field_name": "rua_20byte_string_002",
+        "initial_value": "",
+        "field_desc": "20-byte string",
+        "field_length": "20",
+        "variable_type": "Character",
+        "segment_key_field_names": "",
+        "segment_key_field_business_names": "",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_new_flg_5",
+        "field_name": "v05_num_00120_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Customer",
+        "field_length": "8",
+        "variable_type": "Numeric",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_added_ben_1",
+        "field_name": "v05_str_00128_032",
+        "initial_value": "",
+        "field_desc": "Variable in Customer",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_new_flg_3",
+        "field_name": "v05_num_00160_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Customer",
+        "field_length": "8",
+        "variable_type": "Numeric",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_new_flg_4",
+        "field_name": "v05_num_00168_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Customer",
+        "field_length": "8",
+        "variable_type": "Numeric",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_added_ben_4",
+        "field_name": "v05_str_00176_032",
+        "initial_value": "",
+        "field_desc": "Variable in Customer",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_added_ben_5",
+        "field_name": "v05_str_00208_032",
+        "initial_value": "",
+        "field_desc": "Variable in Customer",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_added_ben_2",
+        "field_name": "v05_str_00240_032",
+        "initial_value": "",
+        "field_desc": "Variable in Customer",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_added_ben_3",
+        "field_name": "v05_str_00272_032",
+        "initial_value": "",
+        "field_desc": "Variable in Customer",
+        "field_length": "32",
+        "variable_type": "Character",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_dt_3",
+        "field_name": "v05_num_00304_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Customer",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_dt_2",
+        "field_name": "v05_num_00312_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Customer",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_dt_1",
+        "field_name": "v05_num_00320_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Customer",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_new_flg_2",
+        "field_name": "v05_num_00328_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Customer",
+        "field_length": "8",
+        "variable_type": "Numeric",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_new_flg_1",
+        "field_name": "v05_num_00336_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Customer",
+        "field_length": "8",
+        "variable_type": "Numeric",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_dt_5",
+        "field_name": "v05_num_00344_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Customer",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      },
+      {
+        "field_business_name": "_x_login_dt_4",
+        "field_name": "v05_num_00352_008",
+        "initial_value": ".",
+        "field_desc": "Variable in Customer",
+        "field_length": "8",
+        "variable_type": "DateTime",
+        "segment_key_field_names": "xqo_cust_num",
+        "segment_key_field_business_names": "xqo_cust_num",
+        "segment_key_field_name": "***MULTIPLE_KEYS***",
+        "segment_key_field_business_name": "***MULTIPLE_KEYS***"
+      }
+    ]
+  }
+]

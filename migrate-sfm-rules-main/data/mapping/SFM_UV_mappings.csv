@@ -1,0 +1,4 @@
+SFM_name,SFD_name
+_C_LAST_MCC_1,credit_card_num.last_mcc_1
+_C_LAST_MCC_DTTM_1,credit_card_num.last_mcc_dttm_1
+_X_IB_COUNTRY_IP_LAST,debit_card_number.IB_COUNTRY_IP_LAST

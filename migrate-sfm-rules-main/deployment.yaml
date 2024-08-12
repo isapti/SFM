@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: migrate-sfm-rules
+  template:
+    metadata:
+      labels:
+        app: migrate-sfm-rules
+    spec:
+      containers:
+      - name: migrate-sfm-rules
+        image: your-docker-registry/flask-app:latest
+        ports:
+        - containerPort: 9000
